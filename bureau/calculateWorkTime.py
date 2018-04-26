@@ -17,10 +17,10 @@ from timefiles import timefiles
 
 
 # printWeek = False
-printWeek = True
-# printMonth = False
-printMonth = True
+# printMonth = True
 
+printWeek = True
+printMonth = False
 
 
 WEEK_WORKTIME = 40 # work hours in a normal week

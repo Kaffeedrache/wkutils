@@ -29,7 +29,7 @@ def writeFeedbackFile (outputFolder, sheet, exercise, filename, studentname, fee
          outputFilename +=  filename + "_%s-%s_%s.txt" % (sheet, exercise, nametouse)
       else:
          outputFilename += filename + "_%s.txt" % (nametouse)
-      print outputFilename
+      #print outputFilename
 
       # Create feedback folder and file
       if not simulate:
@@ -59,10 +59,10 @@ def addFolderToZip(zip_file, folder):
       full_path = os.path.join(folder, file)
       #  full_path = file
       if os.path.isfile(full_path):
-         print 'File added: ' + str(full_path)
+         #print 'File added: ' + str(full_path)
          zip_file.write(full_path)
       elif os.path.isdir(full_path):
-         print 'Entering folder: ' + str(full_path)
+         #print 'Entering folder: ' + str(full_path)
          addFolderToZip(zip_file, full_path)
 
 
@@ -192,7 +192,7 @@ for line in inputFile:
             print "ERROR!! No ILIAS ID found for student '" + studentname + "'"
             thename = studentname
          else:
-            writeFeedbackFile(outputFolder, sheet, exercise, outputFilename, thename, feedbacktext, line[1:].strip(), simulate)
+            writeFeedbackFile(outputFolder, sheet, exercise, "feedback", thename, feedbacktext, line[1:].strip(), simulate)
 
       feedbacktext = ""
       instudent = False
@@ -216,7 +216,7 @@ for line in inputFile:
 
 if instudent:
    print "ERROR!! Have leftover student %s!" % (studentname)
-   writeFeedbackFile(outputFolder, sheet, exercise, outputFilename, studentname, feedbacktext, "", simulate)
+   writeFeedbackFile(outputFolder, sheet, exercise, "feedback", studentname, feedbacktext, "", simulate)
 
 
 

@@ -1,0 +1,15 @@
+# Abgaben
+Hier können (freiwillig) Abgaben zu den Aufgaben gemacht werden.
+Bitte die Lösungen in der Aufgabe zum jeweiligen Blatt hochladen.
+
+*  Blatt 1 Informationsdarstellung	2017-10-15	2017-10-15	2017-10-16
+Lösungen bitte als pdf oder Bild hochladen.
+
+*  Blatt 2 Variablen
+Bitte nur Code hochladen.
+
+*  Blatt 3 Fallunterscheidungen	2017-10-15	2017-10-15
+*  Blatt 4 Schleifen
+*  Blatt 5 Objektorientierung1
+*  Blatt 6 Objektorientierung2		2017-10-23
+*  Blatt 7 Objektorientierung3
