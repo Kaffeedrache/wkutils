@@ -25,7 +25,7 @@ accountsfile = os.path.join(pidginfolder, "blist.xml")
 
 # Regex for replacing the timestamp with only the date
 # used for the names of the log files (see below in copying)
-regex = re.compile(r"\.[-0-9+]+CEST", re.IGNORECASE)
+regex = re.compile(r"\.[-0-9+]+CES*T", re.IGNORECASE)
 
 # Enable debug messages
 debug = True
@@ -114,7 +114,7 @@ for protocol in os.listdir(logsfolder):
                 # Replace the timestamp with only the date.
                 # Pidgin format: 2018-08-02.164514+0200CEST.txt
                 # Our format: name_18-08-02.txt
-                date = string.replace(logf, '2018', '18', 1)
+                date = string.replace(logf, '20', '', 1)
                 date = regex.sub("", date)
 
                 # Get name of the new file and check if it exists
