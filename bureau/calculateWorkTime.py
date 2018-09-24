@@ -8,19 +8,9 @@ Berechnung der Arbeitszeit SOLL und IST.
 """
 from timefiles import timefiles
 
-# 'timefiles' contains an array of file names/paths, e.g.
-#
-# timefiles = [
-#   "file1.txt",
-#   "file2.txt",
-#   ]
-
-
-# printWeek = False
-# printMonth = True
-
 printWeek = True
-printMonth = False
+printMonth = True
+
 
 
 WEEK_WORKTIME = 40 # work hours in a normal week
@@ -154,14 +144,14 @@ def analyzeMonth(timefile, printWeek, printMonth):
    for line in open(timefile):
       line = line.strip()
 
-      #  print line
+    #   print line
 
       # Empty line = End of week
       if line == "":
 
          # If there are no week times saved, skip
          # (happens at end of file or with spurious new lines)
-         if not weekTimes:
+         if not weekTimes and (ghostWeekTime == timedelta()):
             continue
 
          # Calculate spent time and
@@ -199,7 +189,7 @@ def analyzeMonth(timefile, printWeek, printMonth):
                print "Error in CONF line, did not recognize part: " + part
          dailyWorkTime = percent * (workhoursPerWeek) / workdaysPerWeek
          if printWeek or printMonth:
-            print "Work %d, daily work time is %.2f (%d work days, %.2f hours per week)" % (percent*100, dailyWorkTime, workdaysPerWeek, workhoursPerWeek)
+            print "Work %d percent of %.2f hours per week, daily work time is %.2f on %d work days" % (percent*100, workhoursPerWeek, dailyWorkTime, workdaysPerWeek)
          continue
 
       # Position/percentage
@@ -298,7 +288,7 @@ def analyzeMonth(timefile, printWeek, printMonth):
    # If there is still a week that we haven't processed,
    # do the same as we did before
    # (happens at end of file if there is no new line).
-   if weekTimes:
+   if weekTimes or (ghostWeekTime > timedelta()):
       spentTimeWeek = timedelta()
       for day in sorted(weekTimes):
          spentTimeDay = weekTimes.get(day)
