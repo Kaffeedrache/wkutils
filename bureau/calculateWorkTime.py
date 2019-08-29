@@ -6,7 +6,7 @@
 """
 Berechnung der Arbeitszeit SOLL und IST.
 """
-from timefiles import timefiles
+
 
 printWeek = True
 printMonth = True
@@ -21,6 +21,7 @@ from datetime import datetime
 from datetime import time
 from datetime import timedelta
 import re
+import sys
 
 
 def getHours (timedeltaValue):
@@ -316,6 +317,17 @@ def analyzeMonth(timefile, printWeek, printMonth):
 
 
 # MAIN
+
+timefiles = []
+
+if len(sys.argv) > 1: # 0 is program name
+   for i in range(1,len(sys.argv)):
+      print(sys.argv[i])
+      timefiles.append(sys.argv[i])
+
+print("Analyze files: ", timefiles)
+
+
 overtimeTotal = timedelta()
 spentTotal = timedelta()
 expectedTotal = timedelta()
